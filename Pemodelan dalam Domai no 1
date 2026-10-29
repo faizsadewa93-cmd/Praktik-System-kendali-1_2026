@@ -1,0 +1,34 @@
+>> num=30;
+den=[1 8 9 6 30];
+G=tf(num,den)
+[Acc,Bcc,Ccc,Dcc]=tf2ss(num,den);
+Af=flipud(Acc);
+A=fliplr(Af)
+B=flipud(Bcc)
+C=fliplr(Ccc)
+
+G = 
+
+                30
+  ------------------------------
+  s^4 + 8 s^3 + 9 s^2 + 6 s + 30
+ 
+Continuous-time transfer function.
+Model Properties
+
+A = 4×4
+       0      1      0      0
+       0      0      1      0
+       0      0      0      1
+     -30     -6     -9     -8
+
+
+B = 4×1
+     0
+     0
+     0
+     1
+
+
+C = 1×4
+     30     0     0     0

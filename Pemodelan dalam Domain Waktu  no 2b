@@ -1,5 +1,5 @@
->> num=[1 2 12 7 6];
-den=[1 9 13 8];
+num=[1 2 12 7 6];
+den=[1 9 13 8 0 0];
 G=tf(num,den)
 [Acc,Bcc,Ccc,Dcc]=tf2ss(num,den);
 Af=flipud(Acc);
@@ -11,14 +11,26 @@ G =
 
   s^4 + 2 s^3 + 12 s^2 + 7 s + 6
   ------------------------------
-      s^3 + 9 s^2 + 13 s + 8
+   s^5 + 9 s^4 + 13 s^3 + 8 s^2
  
 Continuous-time transfer function.
 Model Properties
-Error using tf2ss>tf2ssImpl (line 77)
-Order of denominator must be greater than or equal to order of numerator.
 
-Error in tf2ss (line 35)
-    [a,b,c,d] = tf2ssImpl(num,den);
-                ^^^^^^^^^^^^^^^^^^
- 
+A = 5×5
+     0     1      0       0      0
+     0     0      1       0      0
+     0     0      0       1      0
+     0     0      0       0      1
+     0     0     -8     -13     -9
+
+
+B = 5×1
+     0
+     0
+     0
+     0
+     1
+
+
+C = 1×5
+     6     7     12     2     1
